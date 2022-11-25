@@ -1,0 +1,350 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN2T1wTyF6P6BRpQpKT7i1D",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Shantayya/Python-Projects/blob/main/Scaler-Python%20Beginner%20Refresher%20Batch2022\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1rci4jIaMhbK",
+        "outputId": "86c5d4c8-4ca8-43ca-b564-87a91d94215f"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hello World\n"
+          ]
+        }
+      ],
+      "source": [
+        "print(\"Hello World\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print('Hello World')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QUW4xCI6MkdS",
+        "outputId": "b63588b0-88a6-4299-e322-0246f2b12731"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hello World\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(10+20)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ADrOP7YBMpUI",
+        "outputId": "8125653d-04ae-48be-b78c-089e2b4f9b04"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "30\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print('10+20')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9_CEwuXOMrem",
+        "outputId": "ebf8659d-1e61-45e9-867b-38876c640a56"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "10+20\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        " ## Comment"
+      ],
+      "metadata": {
+        "id": "FN5kVIb7Mtpp"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a = 10.0\n",
+        "print(type(int(a)))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ToZgJEoHOOQA",
+        "outputId": "86ff288a-eeef-4f0a-b4a1-bed757e568ea"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'int'>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(int(a))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3CxEdyUWOWBD",
+        "outputId": "8edda203-9390-4285-d272-4fa57892c9b1"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "10\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print?"
+      ],
+      "metadata": {
+        "id": "_mEknhclS02R"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# day1 \n",
+        "# data types (int, float, string, boolean)\n",
+        "# type casting\n",
+        "# sep and end (in print syntax)\n",
+        "# var \n",
+        "# input()\n",
+        "# day1 Assignment "
+      ],
+      "metadata": {
+        "id": "z-HmMKABbV-4"
+      },
+      "execution_count": 13,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "A = input(\"Please enter number A: \")\n",
+        "B = input(\"Please neter number B: \")\n",
+        "print(A,B, sep='')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ruBXgYxqgvbf",
+        "outputId": "b32bc138-79d2-47d5-801a-3227c2950650"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Please enter number A: 10\n",
+            " Please neter number B: 20\n",
+            "1020\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "A = input()\n",
+        "B = input()\n",
+        "print( A, \"says Hi to\", B)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "J3G6fu3_gwpV",
+        "outputId": "8400598e-9e65-48a7-fa40-a9d1849e8b49"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "ram\n",
+            "Shyam\n",
+            "ram says Hi to Shyam\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "A = input()\n",
+        "print(\"Hello \", A)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IHs3BnrPiwMc",
+        "outputId": "ebe16165-fc3d-438b-d7b2-41bd4d53f14f"
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Ram\n",
+            "Hello  Ram\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print('A','B', 'C', 'D', 'E',sep=\"\\n\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bpxiKSXtjfgV",
+        "outputId": "34a73478-948e-414f-9c16-d46bca870986"
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "A\n",
+            "B\n",
+            "C\n",
+            "D\n",
+            "E\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "A = int(input(\"Provude time (in minutes), the lasagna has been in the oven\"))\n",
+        "print(\"Lasagna needs\", 40-A, \"more minutes to bake\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "yip-vYJzj0SD",
+        "outputId": "15057b33-ee90-4613-d847-2a82de048042"
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Provude time (in minutes), the lasagna has been in the oven10\n",
+            "Lasagna needs 30 more minutes to bake\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Day2"
+      ],
+      "metadata": {
+        "id": "PHYhi99msdkL"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
