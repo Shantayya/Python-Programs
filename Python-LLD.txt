@@ -1,0 +1,80 @@
+Python-LLD
+Modules: collections of functions and variables
+from imp import reload		--> used to reload modules multiple times.
+reload(module_name)
+
+Note: python modules are imported and cahed under __PYCACHE__ directory. This caching mechanism helps improve the startup time of Python programs by avoiding recompilation of source files every time they are imported.
+
+dir(): list current module members. 
+__builtins__, __name__,__package__,__doc__,__loader__,__cached__,__file__ these are predefined variables python interpreter added in every module. 
+__dict__: shows instance variables 
+__name__: Its special variable indicates whether code is getting executed directy as program or code is indirectly getting executed as module from other program. 
+
+vi module1.py
+def f1():
+	print("The value of __name__",__name__)
+f1()
+
+mofule1.py --> The value of __name__:__main__
+
+
+vi test.py
+import module1
+print("Tha value of __name__",__name__)
+module1.f1()
+
+test.py	--> The value of __name__:module1
+
+
+random module: used to generate random values.
+random(): generate values between o and 1 (excluding)
+randint(start,end): generate int values between range (inclusive)
+uniform(start,end): generate float values between range (exclusive)
+randrange(start,stop,step): similar to range function but random
+choice(list/tuple): select random from list or tuple
+
+
+---------------------------------------------------OOP's concept-----------------------------------------------
+class: acts as blueprint or template 
+object: real time instantiation of class 
+reference variable: remote variable point objects to perform operations
+
+self: a reference variable used to point to object in the class. 
+constructor(): __init__(self)
+used to declare and initialize the instance variables. executed only once per object.  takes atleast one argument. 
+
+3 types of variable:
+1. Instance variable/object level variable: 
+	declared using self. separate copy is created for each object. declared inside __init__()
+2. Static variable/class level variable: 
+	single copy is created for all objects of class. decalared inside class. 
+3. Local variable/method variable: 
+	declared and used inside methods or constructors. scope is limited to method. 
+
+3 types of methods:
+1. instance method/object related methods: method where we are using instance variables. pass self as argument to represent it as instance method. 
+2. class method: use @classmethod decorator to make it class method. it takes any ref variable as argument to access class level variable
+3. static method: use @staticmethod decorator to make it static method. use object or class name to call static function. 
+
+
+class Student:
+  cname = "ShantayyaSwami"		--> static variable
+  def __init__(self,nam,rol):		--> instance method
+	count = 0			--> local variable
+	self.name = nam			--> instance variable
+	self.roll = rol
+	
+  @classmethod				--> class method
+  def display(cls):
+	print("class variable is",cls.cname)
+
+  @staticmethod
+  def show():				--> static method
+    print("this is from static method")
+
+s1 = Student("Shantayya",100)
+s1.display()
+s1.show()
+
+
+Note: del self.var or del object.var --> to delete instance variable, del classname.var --> to delete static var
