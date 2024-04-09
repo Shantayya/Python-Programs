@@ -1,6 +1,6 @@
 Python-LLD
 Modules: collections of functions and variables
-from imp import reload		--> used to reload modules multiple times.
+from imp import reload		--> used to reload modules multiple times. usually modules are loaded only once. 
 reload(module_name)
 
 Note: python modules are imported and cahed under __PYCACHE__ directory. This caching mechanism helps improve the startup time of Python programs by avoiding recompilation of source files every time they are imported.
@@ -27,7 +27,7 @@ test.py	--> The value of __name__:module1
 
 
 random module: used to generate random values.
-random(): generate values between o and 1 (excluding)
+random(): generate values between 0 and 1 (excluding)
 randint(start,end): generate int values between range (inclusive)
 uniform(start,end): generate float values between range (exclusive)
 randrange(start,stop,step): similar to range function but random
@@ -53,7 +53,7 @@ used to declare and initialize the instance variables. executed only once per ob
 
 3 types of methods:
 1. instance method/object related methods: method where we are using instance variables. pass self as argument to represent it as instance method. 
-2. class method: use @classmethod decorator to make it class method. it takes any ref variable as argument to access class level variable
+2. class method: use @classmethod (mandatory) decorator to make it class method. it takes any ref variable as argument to access class level variable. can be called directly with class name. no obj creation required. 
 3. static method: use @staticmethod decorator to make it static method. use object or class name to call static function. 
 
 
@@ -78,3 +78,153 @@ s1.show()
 
 
 Note: del self.var or del object.var --> to delete instance variable, del classname.var --> to delete static var
+getters and setters: used to get and set the data. Hiding data behind methods is called encapsulation and can be achieved using getters and setters. 
+IDE generate these methods for us. 
+
+
+----------------Inner class----------------
+1. class defined inside another class. 
+2. without existing one type of object if there is no existnace of another type of object then we should go for inner classes. (University-department)
+
+class Person:
+   def __init__(self):
+  	self.name="Shantayya"
+ 	self.dob = self.DOB
+   def display(self):
+       print("Name:",self.name)
+       self.dob.display()
+
+   class DOB:
+	def __init__(self):
+	    self.dd = 04
+ 	    self.mm = 11
+            self.yyyy = 1991
+
+        def display(self):
+             print(f"DOB:self.dd/self.mm.self.yyyy")
+
+p = Person()
+p.display()       
+
+
+---------Garbage collection----------
+gc is a process of deleting useless objects. 
+import gc
+gc.isenabled()	--> to check gc enabled or not
+gc.disable()
+gc.enable()
+
+
+__del__(self):  destructor: Just before destroying object gc (invoked by python vm) always calls destructor for clean up activity. 
+
+
+-----------------------------------Overloading-------------------------------
+polymorphism: poly means many,  morph means form so one name with multiple forms called polymorphism.
+operator overloading: refers to redefine the behavior of operators(such as '+','-','*','/' etc) for user-defined classes. operator overloading is achived using magic methods in python. 
+
+magic methods (also known as dunder methods) are special methods with double underscore ('__') at the beginning and end of their names. They are called "magic" because they enable you to perform operations that might seem like built in feature of the languege but they are actually implemented by these special methods. 
+
+each operator corresponds to specific magic method. like 
++ -----> __add__():	+= ---> __iadd__():	> ---> __gt__():
+- -----> __sub__():	-= ---> __isub__():	>= --> __ge__():
+* -----> __mul__():	*= ---> __imul__():	< ---> __lt__():
+/ -----> __div__():	/= ---> __idiv__():	<= --> __le__():
+% -----> __mod__():	%= ---> __imod__():	== --> __eq__():
+** ----> __pow__():	**= --> __ipow__()	!= --> __ne__():
+
+example-1:
+class Book:
+    def __init__(self,pages):
+      self.pages = pages
+    
+    def __str__(self):
+   	return 'The number of pages:'+str(self.pages)
+
+    def __add__(self,other):
+        return self.pages + other.pages
+
+b1 = Book(100)
+b2 = Book(800)
+b3 = Book(1000)
+print(b1+b2)
+
+Note: When you use an operator with obj of a user-defined class, Python internally looks for the appropriate magic method associated with that operator in the class definition and invokes it.
+
+whenever we are trying to print any obj ref then python calls __str__(): magic method internally. 
+if we call print(b1+b2+b3) --> Type Error int(b1+b2) + obj(b3)   to fix this we can amend the __add__() method. like
+    def __add__(self,other):
+        total =  self.pages + other.pages
+	b = Book(total)
+        return b
+
+print(b1+b2+b3) --> 1900
+
+
+example-2: 
+class Employee:
+   def __init__(self,salary):
+      self.salary = salary
+  
+   def __mul__(self,other):
+       return self.salary * other.days
+
+class Timesheet:
+   def __init__(self,days):
+	self.days = days
+ 
+   def __mul__(self,other):
+         return self.days * other.days
+
+e = Employee(500)
+t = Timesheet(30)
+print(e*t)	---> call __mul__() from Employee class
+print(t*e)	---> call __mul__() from Timesheet class
+
+-----------------------------------------------------------Method overloading---------------------------------------
+Python won't support method/constructor overloading. Since Python is dynamically typed, you can pass arguments of any type to a function or method, and the function or method implementation can handle those arguments accordingly.However, Python does support a form of method overloading through the use of default parameter values and variable-length argument lists (*args or **kwargs)
+class MyClass:
+    def my_method(self, a=None, b=None):
+        if a is not None and b is not None:
+            return a + b
+        elif a is not None:
+            return a
+        else:
+            return "No arguments provided"
+
+
+------------------------------------------------------------------Inheritance-----------------------------------------------
+Inheritance (Is-a-relationship): code reusability and extension of functinality 
+single inheritance
+multi-level inheritance 
+hierarchycal inheritance (single parent-multiple child)
+multiple inheritance (multiple parent single child) method resolution always based on order of parent
+
+class P1:
+   def m1(self):
+      print("P1 method")
+
+class P2:
+   def m1(self):
+       print("P2 method")
+class C(P1,P2):pass
+
+c=C()
+c.m1()
+ 
+Has a relationship (composition/aggregation):
+composition vs aggregation:  
+without existance of container obj(university) there may not be existance of contained obj(dept). and this strong association between container obj and contained obj called composition. 
+
+without existance of container obj(dept) there can be existance of contained obj(professors). so this weak association between container and contained obj called aggregation. 
+
+class Student:
+   collageName = "Swami and Sons"
+   def __init__(self,name):
+      self.name = name
+
+s = Student()
+print(Student.collageName)
+print(s.name)
+
+Note: The relation between obj and instance varibale is composition(Strong association) and relation between obj and static variable is aggregation(weak association). 
+
