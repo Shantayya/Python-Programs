@@ -228,3 +228,58 @@ print(s.name)
 
 Note: The relation between obj and instance varibale is composition(Strong association) and relation between obj and static variable is aggregation(weak association). 
 
+-------------------------------Method Resolution Order Algo----------------------------------
+class P:
+  def m1(self):
+     print("Parent")
+class C(P):pass
+
+c = C()
+c.m1()
+print(C.mro())		---> check method in Child class -----> if not found then method checked in Parent -----------> else search method in Obj class
+
+Note: If head element of first list not present in tail part of any other list then consider that element in result and remove that element from all other list. 
+
+
+--------------------------------------super()-------------------------------------
+From child class call members of parent class we use super(). it helps us to call (immediate)parent class contructor or method for code reusability. 
+class Person:
+  def __init__(self,name,age):
+      self.name = name
+      self.age = age
+
+  def display(self):
+      print(f"Name:self.name and Age:self.age")
+class Student(P):
+      def __init__(self,name,age,roll,marks):
+           super().__init__(name,age)
+	   self.roll = roll
+	   self.marks = marks
+      def display(self):
+           super.display()
+	   print(f"Roll:self.roll and Marks:self.marks")
+class Teacher(P):
+    def __init__(self,name,age,salary,sub):
+          super().__init__(name,age)
+	  self.salary = salary
+          self.sub = sub
+    def display(self):
+      super.display()
+      print(f"Salary:self.salary and sub:self.sub")
+
+s = Student("Shantayya",31,5594213,600)
+t = Teacher("SK",47,86000,"CSC")
+s.display()
+t.display()
+
+
+How to call perticular parent class method using super()?
+1. parentclass.methodname(self)
+2. super(classname,self).methodname()		---> here super of classname means classname parent method will get called 
+
+Note: we can't use super to call parent class instance variable.
+
+-------------------------------------File Handling------------------------------------
+ 
+
+
