@@ -280,6 +280,101 @@ How to call perticular parent class method using super()?
 Note: we can't use super to call parent class instance variable.
 
 -------------------------------------File Handling------------------------------------
- 
+Temporary storage: List,Tuple, Map
+Permanent storage: File, DB, BigData etc
 
+Types of file:
+1. Text file: store character data 
+2. binary file: images, video, audio, zip files etc
+
+open files:
+f=open(filename,mode) and with open(filename,ode) as f:
+
+file operations:
+f.write(str)
+f.writeline(list of lines)
+f.read()
+f.read(n)
+f.readline()
+f.readlines()
+
+mode: 
+r,w,a,r+,w+,a+
+
+r --> open an existing file for read operation. if file not exist shows fileNotFound Error. default mode. 
+f=open('abc.txt','r')
+
+w --> open an existing file for write operation. if file not exist then create new one and if exist overwrite.
+f=open('abc.txt','w')
+
+a --> same as write operation however, append existing file. 
+r+ --> read and then write
+w+ --> write and then read + overwrite
+a+ -->  append + read
+x --> exclusive mode. same as write however file should not be available otherwise error. 
+
+Note: Above modes are available for text files. for binary its rb,wb,ab,rb+,wb+,ab+
+while both methods (open) serve the purpose of opening files, using with open(filename, mode) as f is generally preferred because it handles the file closing automatically and is considered more Pythonic
+
+WAP to print number of lines,words and characters in file
+import os
+filename = 'abc.txt'
+if os.path.isfile(filename):
+    lcount = wcount = ccount = 0
+    with open(filename, 'r') as f:
+        for line in f:
+            lcount += 1
+            wcount += len(line.split())
+            ccount += len(line)
+    print("Number of lines:", lcount)
+    print("Number of words:", wcount)
+    print("Number of characters:", ccount)
+else:
+    print('File does not exist')
+
+
+------------working with csv-----------------
+import csv
+with open('abc.csv','w') as f:
+   w = csv.writer(f)
+   w.writerow(['NAME,'ROLLNO','MARKS','ADDR'])
+   while True:
+      name = input('Enter the Student name')
+      rollno = input('Enter roll no')
+      marks  = input('Enter marks')
+      addr = input('Enter address')
+      w.writerow([name,rollno,marks,addr])
+      operation = input('Do you want to record: Yes|No')
+      if option.lower() == 'no':
+        break
+
+with open('abc.csv',r') as f:
+r = csv.reader(f)
+data = list(r)
+for row in data:
+  print(row[0],row[1],row[2],row[3],sep='\t')
+
+---------working with zip file-----------------
+Create ZipFile class object with name of zip file, mode, constant ZIP_DEFLATED (This constant represents we are creating zip file)
+f=ZipFile('abc.zip','w',ZIP_DEFLATED)
+
+once we create ZipFile object,we can add files by using write operaion. 
+f.write(filename)
+
+example: 
+from zipfile import *
+f=ZipFile('abc.zip','w',ZIP_DEFLATED)
+f.write('abc.txt')
+f.write('vcd.txt')
+
+f=ZipFile('abc.zip','r',ZIP_STORED)			---> to read zipfile 
+names = f.namelist()
+for name in names:
+  print("Name of file:",name)
+  with open(name,'r') as f1:
+  f1.read()
+
+
+
+ 
 
